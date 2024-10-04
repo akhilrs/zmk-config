@@ -6,5 +6,8 @@ This repository contains the configuration files for a custom 5-column Corne-ish
 
 ### Layout
 ![](img/layout.png)
+
+Layout image is generated using [Keyboard Layout Editor](http://www.keyboard-layout-editor.com/).
+
 ---
 
