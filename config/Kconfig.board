@@ -1,6 +1,7 @@
 #
 # Copyright (c) 2022 Darryl deHaan
 # SPDX-License-Identifier: MIT
+# 
 #
 
 config BOARD_CORNEISH_ZEN_V1_LEFT
