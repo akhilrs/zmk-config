@@ -33,6 +33,17 @@
 #define XXX &none
 #define ___ &trans
 
+/ {
+    behaviors {
+        leader: leader {
+            compatible = "zmk,behavior-leader";
+            label = "LEADER";
+            #binding-cells = <0>;
+            timeout-ms = <1000>;
+        };
+    };
+};
+
 /* Global settings */
 
 #define QUICK_TAP_MS 175
