@@ -1,7 +1,13 @@
+name: "Build ZMK Firmware"
 on:
   push:
     branches:
       - release
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
+  cancel-in-progress: true
+
 jobs:
   build:
-    uses: LOWPROKB/zmk/.github/workflows/build-user-config.yml@corne-ish-zen-v2
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
