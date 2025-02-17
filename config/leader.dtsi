@@ -12,6 +12,23 @@ Note: The leader sequence must be pressed exactly as defined to be triggered.
 To capitalize a letter, hold the shift key (or tap sticky-shift) *before*
 tapping the leader key. */
 
+
+#undef ZMK_LEADER_SEQUENCE
+#define ZMK_LEADER_SEQUENCE(name, leader_bindings, leader_sequence) \
+    / { \
+        behaviors { \
+            leader: leader { \
+                compatible = "zmk,behavior-leader-key"; \
+                #binding-cells = <0>; \
+                ignore-keys = <LSHFT RSHFT>; \
+                leader_sequence_ ## name { \
+                    bindings = <leader_bindings>; \
+                    sequence = <leader_sequence>; \
+                }; \
+            }; \
+        }; \
+    };
+
 /* German umlauts */
 
 ZMK_LEADER_SEQUENCE(de_ae,      &de_ae,         LM4 RM2)  // ä
@@ -46,3 +63,11 @@ ZMK_LEADER_SEQUENCE(el_chi,     &el_chi,        RM2 LB2)  // χ
 ZMK_LEADER_SEQUENCE(el_psi,     &el_psi,        RM2 RT3)  // ψ
 ZMK_LEADER_SEQUENCE(el_omega,   &el_omega,      RM2 LT3)  // ω
 
+
+// BLE and USB
+#ifdef CONFIG_WIRELESS
+ZMK_LEADER_SEQUENCE(usb,        &out OUT_USB,   U S B)
+ZMK_LEADER_SEQUENCE(ble,        &out OUT_BLE,   B L E)
+#endif // CONFIG_WIRELESS
+ZMK_LEADER_SEQUENCE(reset,      &sys_reset,     R E S E T)
+ZMK_LEADER_SEQUENCE(boot,       &bootloader,    B O O T)
