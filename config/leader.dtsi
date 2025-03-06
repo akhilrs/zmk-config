@@ -140,21 +140,21 @@ tapping the leader key. */
             #ifdef CONFIG_WIRELESS
             leader_sequence_usb: leader_sequence_usb {
                 bindings = <&out OUT_USB>;
-                sequence = <U S B>;
+                sequence = <&kp U &kp S &kp B>;
             };
             leader_sequence_ble: leader_sequence_ble {
                 bindings = <&out OUT_BLE>;
-                sequence = <B L E>;
+                sequence = <&kp B &kp L &kp E>;
             };
             #endif // CONFIG_WIRELESS
             
             leader_sequence_reset: leader_sequence_reset {
                 bindings = <&sys_reset>;
-                sequence = <R E S E T>;
+                sequence = <&kp R &kp E &kp S &kp E &kp T>;
             };
             leader_sequence_boot: leader_sequence_boot {
                 bindings = <&bootloader>;
-                sequence = <B O O T>;
+                sequence = <&kp B &kp O &kp O &kp T>;
             };
         };
     };
